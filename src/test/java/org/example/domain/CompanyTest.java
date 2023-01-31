@@ -26,17 +26,26 @@ public class CompanyTest
     }
 
     @Test
+    void companyName() {
+        assertEquals("Megadyne, Inc.", company.getName());
+    }
+
+    @Test
     public void companyRenamed()
     {
         String proposedName = "Cybertron Unlimited, Ltd.";
 
-        Company aCompany = Mockito.spy(this.company);
+        company.setName(proposedName);
 
-        aCompany.setName(proposedName);
+        assertEquals("Cybertron Unlimited, Ltd.", company.getName());
 
-        verify(aCompany).setName(proposedName);
+        //Company aCompany = Mockito.spy(this.company);
 
-        aCompany.getName();
+        //aCompany.setName(proposedName);
+
+        //verify(aCompany).setName(proposedName);
+
+        //aCompany.getName();
     }
 
     @Test
@@ -49,13 +58,18 @@ public class CompanyTest
     }
 
     @Test
-    public void employeeAdded()
+    public void oneEmployeeAdded()
     {
         this.company.addEmployee(new Employee("123", "Dave", 100_000.00));
-        assertTrue(this.company.numberOfEmployees() > 0);
+        assertEquals(1, this.company.numberOfEmployees());
+    }
 
+    @Test
+    public void twoEmployeesAdded()
+    {
+        this.company.addEmployee(new Employee("123", "Dave", 100_000.00));
         this.company.addEmployee(new Employee("456", "Bob", 50_000.00));
-        assertTrue(this.company.numberOfEmployees() > 0);
+        assertEquals(2, this.company.numberOfEmployees());
     }
 
     @Test

@@ -20,6 +20,7 @@ public class Company
 
     public void setName(String newName)
     {
+        this.name = newName;
     }
 
     public void addEmployee(Employee newEmployee)
@@ -58,6 +59,6 @@ public class Company
 
     public int numberOfEmployees()
     {
-        return 7;
+        return employees.size();
     }
 }
