@@ -1,7 +1,6 @@
 package org.example.calculator;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import java.time.LocalTime;
 
 public class Calculator {
     public static int test(int i, int i1) {
@@ -19,5 +18,11 @@ public class Calculator {
             }
         }
         return count;
+    }
+
+    public static String greeting(String name, LocalTime currentTime) {
+        if(currentTime.getHour() >= 12)
+            return "Good afternoon " + name;
+        return "Good morning " + name;
     }
 }
