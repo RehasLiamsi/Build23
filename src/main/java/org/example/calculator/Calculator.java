@@ -21,7 +21,7 @@ public class Calculator {
     }
 
     public static String greeting(String name, LocalTime currentTime) {
-        if(currentTime.getHour() >= 12)
+        if(currentTime.isAfter(LocalTime.NOON))
             return "Good afternoon " + name;
         return "Good morning " + name;
     }
