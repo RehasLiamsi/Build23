@@ -42,7 +42,7 @@ public class Tennis {
     }
 
     public boolean isGameOver() {
-        if ((scores.get("player1") > 3 || scores.get("player1") > 3)
+        if ((scores.get("player1") > 3 || scores.get("player2") > 3)
                 && Math.abs(scores.get("player1") - scores.get("player2")) > 1)
             return true;
 
