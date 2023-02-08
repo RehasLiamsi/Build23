@@ -16,6 +16,11 @@ public class Tennis {
     public String readScore() {
         int player1Score = scores.get("player1");
         int player2Score = scores.get("player2");
+        if(isDeuce() ){
+            return "deuce";
+        }
+
+
         String scoreAsString = "";
 
 
@@ -23,6 +28,10 @@ public class Tennis {
         scoreAsString += "-";
         scoreAsString += getScore(player2Score);
         return scoreAsString;
+    }
+
+    private boolean isDeuce() {
+        return scores.get("player1") == 3 && scores.get("player2") == 3;
     }
 
     @NotNull
