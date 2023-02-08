@@ -20,6 +20,9 @@ public class Tennis {
             if(player1Score > player2Score) {
                 return "advantage player1";
             }
+            if (player2Score > player1Score) {
+                return "advantage player2";
+            }
             return "deuce";
         }
 

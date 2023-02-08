@@ -131,7 +131,7 @@ public class TennisTest {
     }
 
     @Test
-    void whenBothPlayersHaveMoreThan3BallsAndOneHasAnAdvantageOfOneShouldBeAdvantagePlayerName() {
+    void whenBothPlayersHaveMoreThan3BallsAndPlayer1HasAnAdvantageOfOneShouldBeAdvantagePlayerName() {
         Tennis tennis = new Tennis();
 
         tennis.incrementScore("player1");
@@ -145,6 +145,24 @@ public class TennisTest {
         tennis.incrementScore("player1");
 
         assertThat(tennis.readScore()).isEqualTo("advantage player1");
+        assertThat(tennis.isGameOver()).isFalse();
+    }
+
+    @Test
+    void whenBothPlayersHaveMoreThan3BallsAndPlayer2HasAnAdvantageOfOneShouldBeAdvantagePlayerName() {
+        Tennis tennis = new Tennis();
+
+        tennis.incrementScore("player1");
+        tennis.incrementScore("player1");
+        tennis.incrementScore("player1");
+        tennis.incrementScore("player2");
+        tennis.incrementScore("player2");
+        tennis.incrementScore("player2");
+        tennis.incrementScore("player1");
+        tennis.incrementScore("player2");
+        tennis.incrementScore("player2");
+
+        assertThat(tennis.readScore()).isEqualTo("advantage player2");
         assertThat(tennis.isGameOver()).isFalse();
     }
 }
