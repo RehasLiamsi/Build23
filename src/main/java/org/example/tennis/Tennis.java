@@ -31,7 +31,7 @@ public class Tennis {
     }
 
     private boolean isDeuce() {
-        return scores.get("player1") == 3 && scores.get("player2") == 3;
+        return scores.get("player1") >= 3 && scores.get("player2") >= 3;
     }
 
     @NotNull

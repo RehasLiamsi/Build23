@@ -112,4 +112,21 @@ public class TennisTest {
         assertThat(tennis.readScore()).isEqualTo("deuce");
         assertThat(tennis.isGameOver()).isFalse();
     }
+
+    @Test
+    void whenBothPlayersHaveSameScoreAndMoreThan3BallsShouldBeDeuce() {
+        Tennis tennis = new Tennis();
+
+        tennis.incrementScore("player1");
+        tennis.incrementScore("player1");
+        tennis.incrementScore("player1");
+        tennis.incrementScore("player2");
+        tennis.incrementScore("player2");
+        tennis.incrementScore("player2");
+        tennis.incrementScore("player1");
+        tennis.incrementScore("player2");
+
+        assertThat(tennis.readScore()).isEqualTo("deuce");
+        assertThat(tennis.isGameOver()).isFalse();
+    }
 }
