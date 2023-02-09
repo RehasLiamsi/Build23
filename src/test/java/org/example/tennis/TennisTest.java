@@ -2,6 +2,8 @@ package org.example.tennis;
 
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Method;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class TennisTest {
@@ -148,6 +150,17 @@ public class TennisTest {
         assertThat(tennis.readScore()).isEqualTo("winner player2");
         assertThat(tennis.isGameOver()).isTrue();
 
+    }
+
+    @Test
+    void callingIncrementScoreWhenGameIsOverThrowsException() {
+        tennis.incrementScore("player1");
+        tennis.incrementScore("player1");
+        tennis.incrementScore("player1");
+        tennis.incrementScore("player1");
+
+        assertThatThrownBy(() -> tennis.incrementScore("player1"))
+                .isInstanceOf(IllegalStateException.class);
     }
 
     private void play40_40() {
